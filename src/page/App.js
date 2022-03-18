@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
-import { getMultitagOfURL } from "../api/axios";
+import { getMultitagOfFile, getMultitagOfURL } from "../api/axios";
 import * as S from "../style/app";
 
 function App() {
   const url = useRef();
   const [imgView, setImgView] = useState("");
   const [tags, setTags] = useState([]);
+  const [attachment, setAttachment] = useState("");
 
   const getMultitag = async (e) => {
     e.preventDefault();
@@ -21,8 +22,28 @@ function App() {
     url.current.value = "";
   };
 
+  const onFileChange = async ({ target: { files } }) => {
+    const theFile = files[0];
+    console.log("click");
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      console.log("length0 :", result.length);
+
+      setAttachment(result);
+      const data = getMultitagOfFile(result);
+      console.log(data);
+    };
+    await reader.readAsDataURL(theFile);
+
+    console.log("length :", attachment.length);
+  };
+
   return (
     <S.Page>
+      <input type="file" accept="image/*" onChange={onFileChange} />
       <S.UrlInputForm onSubmit={getMultitag}>
         <input ref={url} type="text" />
         <button>GET</button>
