@@ -35,7 +35,8 @@ export const Page = styled.main`
 `;
 
 export const Preview = styled.div`
-  width: 500px;
+  max-width: 400px;
+  max-height: 400px;
   position: relative;
   margin-top: 80px;
 
