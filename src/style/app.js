@@ -7,6 +7,9 @@ export const UrlInputForm = styled.form`
   gap: 5px;
 
   button {
+    color: white;
+    font-family: "IM_Hyemin-Bold";
+    font-size: 14px;
     width: 60px;
     height: 50px;
     border-radius: 25px;
