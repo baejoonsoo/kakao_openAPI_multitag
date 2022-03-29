@@ -7,7 +7,7 @@ export const UrlInputForm = styled.form`
   width: 500px;
   display: flex;
   justify-content: space-between;
-
+  gap: 5px;
   button {
     width: 60px;
     height: 50px;
@@ -36,12 +36,11 @@ export const Page = styled.main`
 
 export const Preview = styled.div`
   max-width: 400px;
-  max-height: 400px;
   position: relative;
   margin-top: 80px;
 
   img {
-    width: 100%;
+    width: 400px;
   }
 `;
 

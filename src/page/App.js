@@ -36,7 +36,17 @@ function App() {
     } = await getMultitagOfFile(formData);
 
     console.log(result);
-    setTags(result);
+    PreviewData(result);
+
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+
+      setImgView(result);
+    };
+    await reader.readAsDataURL(theFile);
   };
 
   return (
