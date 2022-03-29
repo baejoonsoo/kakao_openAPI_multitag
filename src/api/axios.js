@@ -25,7 +25,6 @@ export const getMultitagOfURL = async (url) => {
 };
 
 export const getMultitagOfFile = async (file) => {
-  console.log(file);
   return await axios
     .request({
       url: `${BASE_URL}`,
@@ -34,11 +33,10 @@ export const getMultitagOfFile = async (file) => {
         "content-Type": "multipart/form-data",
         Authorization: `KakaoAK ${KEYS.REST_API_KEY}`,
       },
-      params: {
-        image: file,
-      },
+      data: file,
     })
     .then((res) => {
+      console.log(res);
       return res;
     })
     .catch((err) => {

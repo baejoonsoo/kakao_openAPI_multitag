@@ -6,7 +6,6 @@ function App() {
   const url = useRef();
   const [imgView, setImgView] = useState("");
   const [tags, setTags] = useState([]);
-  const [attachment, setAttachment] = useState("");
 
   const getMultitag = async (e) => {
     e.preventDefault();
@@ -16,29 +15,28 @@ function App() {
       data: { result },
     } = await getMultitagOfURL(url.current.value);
 
-    setTags(result.label_kr);
+    setTags(result);
     setImgView(url.current.value);
 
     url.current.value = "";
   };
 
+  const PreviewData = (result) => {
+    setTags(result.label_kr);
+  };
+
   const onFileChange = async ({ target: { files } }) => {
     const theFile = files[0];
-    console.log("click");
-    const reader = new FileReader();
-    reader.onloadend = (finishedEvent) => {
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      console.log("length0 :", result.length);
 
-      setAttachment(result);
-      const data = getMultitagOfFile(result);
-      console.log(data);
-    };
-    await reader.readAsDataURL(theFile);
+    const formData = new FormData();
+    formData.append("image", theFile);
 
-    console.log("length :", attachment.length);
+    const {
+      data: { result },
+    } = await getMultitagOfFile(formData);
+
+    console.log(result);
+    setTags(result);
   };
 
   return (
