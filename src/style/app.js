@@ -7,14 +7,17 @@ export const UrlInputForm = styled.form`
   gap: 5px;
 
   button {
+    width: 60px;
+    height: 50px;
+
     color: white;
     font-family: "IM_Hyemin-Bold";
     font-size: 14px;
-    width: 60px;
-    height: 50px;
+
     border-radius: 25px;
     border: none;
     background-color: #69db7c;
+
     &:active {
       transform: scale(0.97);
     }
@@ -22,9 +25,12 @@ export const UrlInputForm = styled.form`
 
   input {
     width: 80%;
+
     padding: 0 18px;
+
     border-radius: 30px;
     border: none;
+
     outline: none;
 
     font-size: 24px;
@@ -46,45 +52,51 @@ export const Preview = styled.div`
     width: 100%;
   }
 `;
+
 export const ImgBlock = styled.div`
-  display: flex;
   width: 44vw;
   height: 94vh;
+
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const FormBlock = styled(ImgBlock)`
+  background-color: #d3f9d8;
+
   justify-items: left;
   flex-direction: column;
   align-items: center;
 
-  background-color: #d3f9d8;
   margin: 3vh 3vw;
   border-radius: 30px;
 `;
 
 export const Tags = styled.div`
+  width: 60%;
+
   position: absolute;
   bottom: 30px;
   right: -10px;
 
-  gap: 10px;
-  width: 60%;
+  display: flex;
   flex-wrap: wrap-reverse;
   justify-content: flex-end;
   align-items: flex-end;
-  display: flex;
+  gap: 10px;
 
   span {
     cursor: pointer;
-    border-radius: 13px;
-    padding: 5px 7px;
     min-height: 20px;
+    padding: 5px 7px;
+    border-radius: 13px;
+
     font-size: 15px;
-    background-color: #c3fae8;
     word-wrap: break-word;
     font-family: "IM_Hyemin-Bold";
+
+    background-color: #c3fae8;
 
     &:hover {
       transform: scale(1.05);
@@ -93,12 +105,14 @@ export const Tags = styled.div`
 `;
 
 export const FileInput = styled.label`
-  font-family: "IM_Hyemin-Bold";
-  padding: 10px 15px;
-  background-color: #69db7c;
-  border-radius: 30px;
-  color: white;
   margin-top: 5px;
+  padding: 10px 15px;
+  border-radius: 30px;
+
+  background-color: #69db7c;
+
+  font-family: "IM_Hyemin-Bold";
+  color: white;
 
   :active {
     transform: scale(0.95);
