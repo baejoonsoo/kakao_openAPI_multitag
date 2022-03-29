@@ -39,7 +39,7 @@ export const Preview = styled.div`
   position: relative;
 
   img {
-    width: 400px;
+    width: 100%;
   }
 `;
 export const ImgBlock = styled.div`
@@ -66,7 +66,7 @@ export const Tags = styled.div`
   right: 10px;
 
   gap: 10px;
-  width: 50%;
+  width: 60%;
   flex-wrap: wrap-reverse;
   justify-content: flex-end;
   align-items: flex-end;
@@ -75,10 +75,11 @@ export const Tags = styled.div`
   span {
     cursor: pointer;
     border-radius: 13px;
-    padding: 4px 6px;
+    padding: 5px 7px;
     min-height: 20px;
     font-size: 15px;
     background-color: #c3fae8;
+    word-wrap: break-word;
     font-family: "IM_Hyemin-Bold";
 
     &:hover {
