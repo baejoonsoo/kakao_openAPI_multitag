@@ -39,6 +39,7 @@ export const Preview = styled.div`
   position: relative;
 
   img {
+    border: #808080 20px solid;
     width: 100%;
   }
 `;
@@ -62,8 +63,8 @@ export const FormBlock = styled(ImgBlock)`
 
 export const Tags = styled.div`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 30px;
+  right: -10px;
 
   gap: 10px;
   width: 60%;
