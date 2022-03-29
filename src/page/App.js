@@ -15,7 +15,7 @@ function App() {
       data: { result },
     } = await getMultitagOfURL(url.current.value);
 
-    setTags(result);
+    PreviewData(result);
     setImgView(url.current.value);
 
     url.current.value = "";
@@ -23,6 +23,7 @@ function App() {
 
   const PreviewData = (result) => {
     setTags(result.label_kr);
+    console.log(result);
   };
 
   const onFileChange = async ({ target: { files } }) => {
@@ -51,21 +52,35 @@ function App() {
 
   return (
     <S.Page>
-      <input type="file" accept="image/*" onChange={onFileChange} />
-      <S.UrlInputForm onSubmit={getMultitag}>
-        <input ref={url} type="text" />
-        <button>GET</button>
-      </S.UrlInputForm>
-      {imgView && (
-        <S.Preview>
-          <img src={imgView} alt="img" />
-          <S.Tags>
-            {tags.map((tag) => (
-              <span key={tag}>#{tag}</span>
-            ))}
-          </S.Tags>
-        </S.Preview>
-      )}
+      <S.FormBlock>
+        <S.Title>멀티태그 생성</S.Title>
+        <S.UrlInputForm onSubmit={getMultitag}>
+          <input ref={url} type="text" />
+          <button>GET</button>
+        </S.UrlInputForm>
+        <S.FileInput htmlFor="fileInput">파일찾기</S.FileInput>
+        <input
+          style={{ display: "none" }}
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          onChange={onFileChange}
+        />
+      </S.FormBlock>
+      <S.ImgBlock>
+        {imgView && (
+          <S.Preview>
+            <img src={imgView} alt="img" />
+            <S.Tags>
+              {tags.length ? (
+                tags.map((tag) => <span key={tag}>#{tag}</span>)
+              ) : (
+                <span>적절한 태그를 찾을 수 없습니다</span>
+              )}
+            </S.Tags>
+          </S.Preview>
+        )}
+      </S.ImgBlock>
     </S.Page>
   );
 }

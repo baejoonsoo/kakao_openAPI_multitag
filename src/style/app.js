@@ -2,12 +2,10 @@
 import styled from "@emotion/styled";
 
 export const UrlInputForm = styled.form`
-  /* background-color: red; */
-  margin-top: 100px;
-  width: 500px;
+  width: 40vw;
   display: flex;
-  justify-content: space-between;
   gap: 5px;
+
   button {
     width: 60px;
     height: 50px;
@@ -18,11 +16,13 @@ export const UrlInputForm = styled.form`
       transform: scale(0.97);
     }
   }
+
   input {
-    width: 430px;
+    width: 80%;
     padding: 0 18px;
     border-radius: 30px;
-    border: black 1px solid;
+    border: none;
+    outline: none;
 
     font-size: 24px;
   }
@@ -30,18 +30,34 @@ export const UrlInputForm = styled.form`
 
 export const Page = styled.main`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 `;
 
 export const Preview = styled.div`
   max-width: 400px;
   position: relative;
-  margin-top: 80px;
 
   img {
     width: 400px;
   }
+`;
+export const ImgBlock = styled.div`
+  display: flex;
+  width: 44vw;
+  height: 94vh;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FormBlock = styled(ImgBlock)`
+  justify-items: left;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #d3f9d8;
+  margin: 3vh 3vw;
+  border-radius: 30px;
 `;
 
 export const Tags = styled.div`
@@ -63,9 +79,28 @@ export const Tags = styled.div`
     min-height: 20px;
     font-size: 15px;
     background-color: #c3fae8;
+    font-family: "IM_Hyemin-Bold";
 
     &:hover {
       transform: scale(1.05);
     }
   }
+`;
+
+export const FileInput = styled.label`
+  font-family: "IM_Hyemin-Bold";
+  padding: 10px 15px;
+  background-color: #69db7c;
+  border-radius: 30px;
+  color: white;
+  margin-top: 5px;
+
+  :active {
+    transform: scale(0.95);
+  }
+`;
+export const Title = styled.h1`
+  font-family: "EliceDigitalBaeum-Bd";
+  margin-top: -50px;
+  color: #087f5b;
 `;
