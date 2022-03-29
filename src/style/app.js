@@ -118,6 +118,7 @@ export const FileInput = styled.label`
     transform: scale(0.95);
   }
 `;
+
 export const Title = styled.h1`
   font-family: "EliceDigitalBaeum-Bd";
   margin-top: -50px;
