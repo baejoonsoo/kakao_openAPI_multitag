@@ -29,6 +29,7 @@ function App() {
   const onFileChange = async ({ target: { files } }) => {
     const theFile = files[0];
 
+    // 서버로 전송하기 위한 파일 formData
     const formData = new FormData();
     formData.append("image", theFile);
 
@@ -39,6 +40,7 @@ function App() {
     console.log(result);
     PreviewData(result);
 
+    // 화면에 띄우기 위한 변환작업
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
       const {
