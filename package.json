@@ -2,6 +2,8 @@
   "name": "multi-tag",
   "version": "0.1.0",
   "private": true,
+  "main": "public/Main.js",
+  "homepage": "./",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
@@ -21,7 +23,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
-    "predeploy": "yarn build"
+    "predeploy": "yarn build",
+
+    "react-start": "BROWSER=none yarn start",
+    "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-pack": "yarn build && electron-builder build -c.extraMetadata.main=build/Main.js"
+  
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +48,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://baejoonsoo.github.io/kakao_openAPI_multitag"
+  "devDependencies": {
+    "electron": "^19.0.3",
+    "electron-builder": "^23.0.3"
+  }
 }
