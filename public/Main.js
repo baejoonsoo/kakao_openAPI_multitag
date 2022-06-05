@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
 const url = require("url");
 
@@ -9,6 +9,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1000,
     height: 700,
+    icon: path.join(__dirname, "icon.icns"),
   });
 
   /*
@@ -28,6 +29,40 @@ function createWindow() {
    * startUrl에 배정되는 url을 맨 위에서 생성한 BrowserWindow에서 실행시킵니다.
    * */
   win.loadURL(startUrl);
+
+  const template = [
+    {
+      label: "simpleApp",
+      submenu: [
+        {
+          role: "about",
+        },
+        {
+          type: "separator",
+        },
+        {
+          role: "quit",
+        },
+      ],
+    },
+    {
+      label: "dev",
+      submenu: [
+        {
+          label: "new Background",
+        },
+        {
+          type: "separator",
+        },
+        {
+          label: "reset preferences",
+        },
+      ],
+    },
+  ];
+
+  const customMenu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(customMenu);
 }
 
 app.on("ready", createWindow);
