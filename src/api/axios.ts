@@ -1,9 +1,9 @@
 import axios from "axios";
-import KEYS from "../config.json";
+import KEYS from "./config.json";
 
 const BASE_URL = "https://dapi.kakao.com/v2/vision/multitag/generate";
 
-export const getMultitagOfURL = async (url) => {
+export const getMultitagOfURL = async (url: string) => {
   return await axios
     .request({
       url: `${BASE_URL}`,
@@ -24,7 +24,7 @@ export const getMultitagOfURL = async (url) => {
     });
 };
 
-export const getMultitagOfFile = async (file) => {
+export const getMultitagOfFile = async (file: FormData) => {
   return await axios
     .request({
       url: `${BASE_URL}`,
